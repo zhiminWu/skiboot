@@ -6,7 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>How to log errors on OPAL &#8212; skiboot 5.4.0-rc3 documentation</title>
+    <title>How to log errors on OPAL &#8212; skiboot 5.5.0-rc3
+ documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,10 +15,12 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '5.4.0-rc3',
+        VERSION:     '5.5.0-rc3
+',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -25,7 +28,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="skiboot 5.4.0-rc3 documentation" href="index.html" />
     <link rel="next" title="OPAL &lt;–&gt; BMC interactions" href="bmc.html" />
     <link rel="prev" title="SkiBoot Console Log" href="console-log.html" /> 
   </head>
@@ -42,7 +44,8 @@
         <li class="right" >
           <a href="console-log.html" title="SkiBoot Console Log"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -75,14 +78,12 @@ to PEL format and then pushed to service processor.</p>
 <div><code class="docutils literal"><span class="pre">struct</span> <span class="pre">errorlog</span> <span class="pre">*opal_elog_create(struct</span> <span class="pre">opal_err_info</span> <span class="pre">*e_info,</span> <span class="pre">uint32_t</span> <span class="pre">tag);</span></code></div></blockquote>
 <p>Parameters:</p>
 <blockquote>
-<div><ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">struct</span> <span class="pre">opal_err_info</span> <span class="pre">*e_info</span></code>
-Struct to hold information identifying error/event source.</p>
-</li>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">struct</span> <span class="pre">opal_err_info</span> <span class="pre">*e_info</span></code>
+Struct to hold information identifying error/event source.</li>
 <li><dl class="first docutils">
 <dt><code class="docutils literal"><span class="pre">uint32_t</span> <span class="pre">tag:</span></code> Unique value to identify the data.</dt>
-<dd><p class="first last">Ideal to have ASCII value for 4-byte string.</p>
-</dd>
+<dd>Ideal to have ASCII value for 4-byte string.</dd>
 </dl>
 </li>
 </ul>
@@ -320,15 +321,12 @@ is done with just one call.</p>
 <h1>Error logging retrieval from FSP:<a class="headerlink" href="#error-logging-retrieval-from-fsp" title="Permalink to this headline">¶</a></h1>
 <p>FSP sends error log notification to OPAL via mailbox protocol.</p>
 <p>OPAL maintains below lists:</p>
-<ul>
-<li><p class="first">Free list      : List of free nodes.</p>
-</li>
-<li><p class="first">Pending list   : List of nodes which is yet to be read by the POWERNV.</p>
-</li>
+<ul class="simple">
+<li>Free list      : List of free nodes.</li>
+<li>Pending list   : List of nodes which is yet to be read by the POWERNV.</li>
 <li><dl class="first docutils">
-<dt>Processed list</dt>
- <span class="classifier-delimiter">:</span> <span class="classifier">List of nodes which has been read but still waiting for</span><dd><p class="first last">acknowledgement.</p>
-</dd>
+<dt>Processed list <span class="classifier-delimiter">:</span> <span class="classifier">List of nodes which has been read but still waiting for</span></dt>
+<dd>acknowledgement.</dd>
 </dl>
 </li>
 </ul>
@@ -610,7 +608,7 @@ structures.</li>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/error-logging.txt"
+      <li><a href="_sources/error-logging.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -640,12 +638,13 @@ structures.</li>
         <li class="right" >
           <a href="console-log.html" title="SkiBoot Console Log"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
     </div>
   </body>
 </html>

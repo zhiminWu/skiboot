@@ -6,7 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Nvlink Device Tree Bindings &#8212; skiboot 5.4.0-rc3 documentation</title>
+    <title>Nvlink Device Tree Bindings &#8212; skiboot 5.5.0-rc3
+ documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,10 +15,12 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.4.0-rc3',
+        VERSION:     '5.5.0-rc3
+',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -25,8 +28,6 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="skiboot 5.4.0-rc3 documentation" href="../index.html" />
-    <link rel="up" title="Device Tree" href="index.html" />
     <link rel="next" title="Nest (NX) Accelerator Coprocessor" href="nx.html" />
     <link rel="prev" title="ibm,secureboot" href="ibm,secureboot.html" /> 
   </head>
@@ -43,7 +44,8 @@
         <li class="right" >
           <a href="ibm,secureboot.html" title="ibm,secureboot"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Device Tree</a> &#187;</li> 
       </ul>
     </div>  
@@ -114,6 +116,26 @@
 <span class="p">};</span>
 </pre></div>
 </div>
+<div class="section" id="gpu-memory-bindings">
+<h2>GPU memory bindings<a class="headerlink" href="#gpu-memory-bindings" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-dts"><div class="highlight"><pre><span></span><span class="nc">memory</span><span class="nf">@100000000</span> <span class="p">{</span>
+        <span class="nf">device_type</span> <span class="o">=</span> <span class="s">&quot;memory&quot;</span>
+        <span class="err">compatible</span> <span class="err">=</span> <span class="s">&quot;ibm,coherent-device-memory&quot;</span><span class="p">;</span>
+        <span class="nf">linux,usable-memory</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x0</span> <span class="mh">0x100000000</span> <span class="mh">0x0</span> <span class="mh">0x0</span><span class="p">&gt;;</span>
+
+<span class="err">;</span> <span class="err">denotes</span> <span class="err">a</span> <span class="err">region</span> <span class="err">of</span> <span class="err">unplugged</span> <span class="err">system</span> <span class="err">memory</span>
+
+        <span class="nf">reg</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x0</span> <span class="mh">0x100000000</span> <span class="mh">0x0</span> <span class="mh">0x80000000</span><span class="p">&gt;;</span>
+        <span class="nf">ibm,associativity</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x4</span> <span class="mh">0x0</span> <span class="mh">0x0</span> <span class="mh">0x0</span> <span class="mh">0x64</span><span class="p">&gt;;</span>
+
+<span class="err">;</span> <span class="err">numa</span> <span class="err">associativity</span> <span class="err">for</span> <span class="err">the</span> <span class="err">memory</span> <span class="err">once</span> <span class="err">it</span> <span class="err">is</span> <span class="err">hotplugged</span>
+
+        <span class="nf">phandle</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x10000abc</span><span class="p">&gt;;</span>
+        <span class="nf">linux,phandle</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x10000abc</span><span class="p">&gt;;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="emulated-pci-device-bindings">
 <h2>Emulated PCI device bindings<a class="headerlink" href="#emulated-pci-device-bindings" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-dts"><div class="highlight"><pre><span></span><span class="nc">pciex</span><span class="nf">@3fff000400000</span> <span class="p">{</span>
@@ -128,6 +150,7 @@
                  <span class="nf">ibm,pci-config-space-type</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x1</span><span class="p">&gt;;</span>
                  <span class="nf">vendor-id</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x1014</span><span class="p">&gt;;</span>
                  <span class="nf">ibm,gpu</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x100002f7</span><span class="p">&gt;;</span> <span class="cm">/* phandle pointing the associated GPU PCI device node */</span>
+                 <span class="nf">memory-region</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x10000abc</span><span class="p">&gt;;</span> <span class="cm">/* phandle pointing to the GPU memory */</span>
                  <span class="nf">phandle</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x100002fc</span><span class="p">&gt;;</span>
          <span class="p">};</span>
 
@@ -139,6 +162,7 @@
                  <span class="nf">ibm,pci-config-space-type</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x1</span><span class="p">&gt;;</span>
                  <span class="nf">vendor-id</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x1014</span><span class="p">&gt;;</span>
                  <span class="nf">ibm,gpu</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x100002f5</span><span class="p">&gt;;</span>
+                 <span class="nf">memory-region</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x10000def</span><span class="p">&gt;;</span>
                  <span class="nf">phandle</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x100002fe</span><span class="p">&gt;;</span>
                  <span class="nf">class-code</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x60400</span><span class="p">&gt;;</span>
                  <span class="nf">linux,phandle</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x100002fe</span><span class="p">&gt;;</span>
@@ -152,6 +176,7 @@
                  <span class="nf">ibm,pci-config-space-type</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x1</span><span class="p">&gt;;</span>
                  <span class="nf">vendor-id</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x1014</span><span class="p">&gt;;</span>
                  <span class="nf">ibm,gpu</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x100002f7</span><span class="p">&gt;;</span>
+                 <span class="nf">memory-region</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x10000abc</span><span class="p">&gt;;</span>
                  <span class="nf">phandle</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x100002fd</span><span class="p">&gt;;</span>
                  <span class="nf">class-code</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x60400</span><span class="p">&gt;;</span>
                  <span class="nf">linux,phandle</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x100002fd</span><span class="p">&gt;;</span>
@@ -165,6 +190,7 @@
                  <span class="nf">ibm,pci-config-space-type</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x1</span><span class="p">&gt;;</span>
                  <span class="nf">vendor-id</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x1014</span><span class="p">&gt;;</span>
                  <span class="nf">ibm,gpu</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x100002f5</span><span class="p">&gt;;</span>
+                 <span class="nf">memory-region</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x10000def</span><span class="p">&gt;;</span>
                  <span class="nf">phandle</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x100002ff</span><span class="p">&gt;;</span>
                  <span class="nf">class-code</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x60400</span><span class="p">&gt;;</span>
                  <span class="nf">linux,phandle</span> <span class="o">=</span> <span class="p">&lt;</span><span class="mh">0x100002ff</span><span class="p">&gt;;</span>
@@ -184,6 +210,7 @@
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Nvlink Device Tree Bindings</a><ul>
+<li><a class="reference internal" href="#gpu-memory-bindings">GPU memory bindings</a></li>
 <li><a class="reference internal" href="#emulated-pci-device-bindings">Emulated PCI device bindings</a></li>
 </ul>
 </li>
@@ -198,7 +225,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/device-tree/nvlink.txt"
+      <li><a href="../_sources/device-tree/nvlink.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -228,13 +255,14 @@
         <li class="right" >
           <a href="ibm,secureboot.html" title="ibm,secureboot"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Device Tree</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
     </div>
   </body>
 </html>

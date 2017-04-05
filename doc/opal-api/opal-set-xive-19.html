@@ -6,7 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>OPAL_SET_XIVE &#8212; skiboot 5.4.0-rc3 documentation</title>
+    <title>OPAL_SET_XIVE &#8212; skiboot 5.5.0-rc3
+ documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,10 +15,12 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.4.0-rc3',
+        VERSION:     '5.5.0-rc3
+',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -25,9 +28,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="skiboot 5.4.0-rc3 documentation" href="../index.html" />
-    <link rel="up" title="OPAL API Documentation" href="index.html" />
-    <link rel="next" title="OPAL_SYNC_HOST_REBOOT" href="opal-sync-host-reboot-87.html" />
+    <link rel="next" title="OPAL_SIGNAL_SYSTEM_RESET" href="opal-signal-system-reset-145.html" />
     <link rel="prev" title="OPAL_SENSOR_READ" href="opal-sensor-read-88.html" /> 
   </head>
   <body role="document">
@@ -38,12 +39,13 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="opal-sync-host-reboot-87.html" title="OPAL_SYNC_HOST_REBOOT"
+          <a href="opal-signal-system-reset-145.html" title="OPAL_SIGNAL_SYSTEM_RESET"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="opal-sensor-read-88.html" title="OPAL_SENSOR_READ"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -58,22 +60,37 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#define OPAL_SET_XIVE                                19</span>
 </pre></div>
 </div>
-<p><strong>WARNING:</strong> following documentation is from old sources, and is possibly
-not representative of OPALv3 as implemented by skiboot. This should be
-used as a starting point for full documentation.</p>
-<p>The host calls this function to set the POWER XIVE server and priority
-parameters into the PHB XIVE.</p>
+<p>The host calls this function to set the server (target processor)
+and priority parameters of an interrupt source.</p>
+<p>This can be also used to mask or unmask the interrupt (by changing
+the priority to 0xff one masks an interrupt).</p>
+<p>WARNINGS:</p>
+<blockquote>
+<div><ul class="simple">
+<li>For MSIs or generally edge sensitive interrupts, OPAL provides no
+guarantee as to whether the interrupt will be latched if it occurs
+while masked and replayed on unmask. It may or may not. The OS needs
+to be aware of this. The current implementation will <em>not</em> replay,
+neither on P8 nor on P9 XICS emulation.</li>
+<li>When masking, there is no guarantee that the interrupt will not
+still occur after this call returns. The reason is that it might
+already be on its way past the source controller and latched into one
+of the presenters. There is however a guarantee that it won&#8217;t replay
+indefinitely so it&#8217;s acceptable for the OS to simply ignore it.</li>
+</ul>
+</div></blockquote>
 <div class="section" id="parameters">
 <h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">phb_id</span></code></dt>
-<dd>is the value from the PHB node ibm,opal-phbid property.</dd>
-<dt><code class="docutils literal"><span class="pre">xive_number</span></code></dt>
-<dd>is the index of an XIVE that corresponds to a particular
-interrupt</dd>
-<dt><code class="docutils literal"><span class="pre">service_number</span></code></dt>
-<dd>is the server (processor) that is to receive the
-interrupt request</dd>
+<dt><code class="docutils literal"><span class="pre">isn</span></code></dt>
+<dd>This is a global interrupt number as obtained from the device-tree
+&#8220;interrupts&#8221; or &#8220;interrupt-map&#8221; properties.</dd>
+<dt><code class="docutils literal"><span class="pre">server_number</span></code></dt>
+<dd>is the mangled server (processor) that is to receive the
+interrupt request. The mangling means that the actual processor
+number is shifted left by 2 bits, the bottom bits representing
+the &#8220;link&#8221;. However links aren&#8217;t supported in OPAL so the bottom
+2 bits should be 0.</dd>
 <dt><code class="docutils literal"><span class="pre">priority</span></code></dt>
 <dd>is the interrupt priority value applied to the interrupt
 (0=highest, 0xFF = lowest/disabled).</dd>
@@ -99,12 +116,12 @@ interrupt request</dd>
   <p class="topless"><a href="opal-sensor-read-88.html"
                         title="previous chapter">OPAL_SENSOR_READ</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="opal-sync-host-reboot-87.html"
-                        title="next chapter">OPAL_SYNC_HOST_REBOOT</a></p>
+  <p class="topless"><a href="opal-signal-system-reset-145.html"
+                        title="next chapter">OPAL_SIGNAL_SYSTEM_RESET</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/opal-api/opal-set-xive-19.txt"
+      <li><a href="../_sources/opal-api/opal-set-xive-19.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -129,18 +146,19 @@ interrupt request</dd>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="opal-sync-host-reboot-87.html" title="OPAL_SYNC_HOST_REBOOT"
+          <a href="opal-signal-system-reset-145.html" title="OPAL_SIGNAL_SYSTEM_RESET"
              >next</a> |</li>
         <li class="right" >
           <a href="opal-sensor-read-88.html" title="OPAL_SENSOR_READ"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
     </div>
   </body>
 </html>

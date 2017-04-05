@@ -6,7 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>OPAL_GET_XIVE &#8212; skiboot 5.4.0-rc3 documentation</title>
+    <title>OPAL_GET_XIVE &#8212; skiboot 5.5.0-rc3
+ documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,10 +15,12 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.4.0-rc3',
+        VERSION:     '5.5.0-rc3
+',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -25,8 +28,6 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="skiboot 5.4.0-rc3 documentation" href="../index.html" />
-    <link rel="up" title="OPAL API Documentation" href="index.html" />
     <link rel="next" title="OPAL_GET_XIVE_SOURCE" href="opal-get-xive-source-38.html" />
     <link rel="prev" title="OPAL_GET_MSI_32 and OPAL_GET_MSI_64" href="opal-get-msi-39-40.html" /> 
   </head>
@@ -43,7 +44,8 @@
         <li class="right" >
           <a href="opal-get-msi-39-40.html" title="OPAL_GET_MSI_32 and OPAL_GET_MSI_64"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>  
@@ -58,25 +60,21 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">#define OPAL_GET_XIVE                                20</span>
 </pre></div>
 </div>
-<p><strong>WARNING:</strong> following documentation is from old sources, and is possibly
-not representative of OPALv3 as implemented by skiboot. This should be
-used as a starting point for full documentation.</p>
-<p>The host calls this function to return the POWER XIVE server and priority
-values currently set in a PHB XIVE.</p>
+<p>The host calls this function to return the configuration of an
+interrupt source. See OPAL_SET_XIVE for details.</p>
+<div class="section" id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt><code class="docutils literal"><span class="pre">phb_id</span></code></dt>
-<dd>The <code class="docutils literal"><span class="pre">phb_id</span></code> parameter is the value from the PHB node <code class="docutils literal"><span class="pre">ibm,opal-phbid</span></code>
-property.</dd>
-<dt><code class="docutils literal"><span class="pre">xive_number</span></code></dt>
-<dd>The <code class="docutils literal"><span class="pre">xive_number</span></code> is the index of an XIVE that corresponds to a particular
-interrupt.</dd>
+<dt><code class="docutils literal"><span class="pre">isn</span></code></dt>
+<dd>The <code class="docutils literal"><span class="pre">isn</span></code> is the global interrupt number being queried</dd>
 <dt><code class="docutils literal"><span class="pre">server_number</span></code></dt>
-<dd>the <code class="docutils literal"><span class="pre">server_number</span></code> returns the server (processor) that is set in this XIVE</dd>
+<dd>the <code class="docutils literal"><span class="pre">server_number</span></code> returns the mangled server (processor)
+that is set to receive that interrupt.</dd>
 <dt><code class="docutils literal"><span class="pre">priority</span></code></dt>
-<dd>the <code class="docutils literal"><span class="pre">priority</span></code> returns the interrupt priority value that is set in this XIVE</dd>
+<dd>the <code class="docutils literal"><span class="pre">priority</span></code> returns the current interrupt priority setting
+for that interrupt.</dd>
 </dl>
-<p>This call returns the server and priority numbers from within the XIVE
-specified by the XIVE_number.</p>
+</div>
 </div>
 
 
@@ -85,6 +83,14 @@ specified by the XIVE_number.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">OPAL_GET_XIVE</a><ul>
+<li><a class="reference internal" href="#parameters">Parameters</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="opal-get-msi-39-40.html"
                         title="previous chapter">OPAL_GET_MSI_32 and OPAL_GET_MSI_64</a></p>
@@ -94,7 +100,7 @@ specified by the XIVE_number.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/opal-api/opal-get-xive-20.txt"
+      <li><a href="../_sources/opal-api/opal-get-xive-20.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -124,13 +130,14 @@ specified by the XIVE_number.</p>
         <li class="right" >
           <a href="opal-get-msi-39-40.html" title="OPAL_GET_MSI_32 and OPAL_GET_MSI_64"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >OPAL API Documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
     </div>
   </body>
 </html>

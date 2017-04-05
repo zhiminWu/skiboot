@@ -6,7 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>skiboot-5.3.0-rc1 &#8212; skiboot 5.4.0-rc3 documentation</title>
+    <title>skiboot-5.3.0-rc1 &#8212; skiboot 5.5.0-rc3
+ documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,10 +15,12 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.4.0-rc3',
+        VERSION:     '5.5.0-rc3
+',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -25,8 +28,6 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="skiboot 5.4.0-rc3 documentation" href="../index.html" />
-    <link rel="up" title="Release Notes" href="index.html" />
     <link rel="next" title="skiboot-5.3.0-rc2" href="skiboot-5.3.0-rc2.html" />
     <link rel="prev" title="skiboot-5.3.0" href="skiboot-5.3.0.html" /> 
   </head>
@@ -43,7 +44,8 @@
         <li class="right" >
           <a href="skiboot-5.3.0.html" title="skiboot-5.3.0"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
     </div>  
@@ -66,20 +68,17 @@ and skiboot-5.2.4 (the existing stable releases).</p>
 <p>Over skiboot-5.2, we have the following changes:</p>
 <div class="section" id="opal-api-device-tree">
 <h2>OPAL API/Device Tree<a class="headerlink" href="#opal-api-device-tree" title="Permalink to this headline">¶</a></h2>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Reserve OPAL API numbers for XICS emulation for XIVE</dt>
-<dd><p class="first last">Additionally, we put in some skeleton docs for what&#8217;s coming,
+<dd>Additionally, we put in some skeleton docs for what&#8217;s coming,
 key points being that this is for P9 and above, relies on a device
-being present in the device tree and is modelled on the PAPR calls.</p>
-</dd>
+being present in the device tree and is modelled on the PAPR calls.</dd>
 </dl>
 </li>
-<li><p class="first">interrupts: Remove #interrupt-cells from ICP nodes</p>
-</li>
-<li><p class="first">Stop adding legacy linux, phandle to device tree, just add phandle
-No Linux kernel has ever existed for powernv that only knows linux,phandle.</p>
-</li>
+<li>interrupts: Remove #interrupt-cells from ICP nodes</li>
+<li>Stop adding legacy linux, phandle to device tree, just add phandle
+No Linux kernel has ever existed for powernv that only knows linux,phandle.</li>
 </ul>
 </div>
 <div class="section" id="power9">
@@ -98,23 +97,17 @@ Some things are going to change, we start documenting them.</li>
 </div>
 <div class="section" id="capi">
 <h2>CAPI<a class="headerlink" href="#capi" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">phb3: Test CAPI mode on both CAPP units on Naples</p>
-</li>
-<li><p class="first">hmi: Recover both CAPP units on Naples after malfunction alert</p>
-</li>
-<li><p class="first">chiptod: Sync timebase in both CAPP units on Naples</p>
-</li>
-<li><p class="first">phb3: Set CAPI mode for both CAPP units on Naples</p>
-</li>
-<li><p class="first">phb3: Load CAPP ucode to both CAPP units on Naples</p>
-</li>
+<ul class="simple">
+<li>phb3: Test CAPI mode on both CAPP units on Naples</li>
+<li>hmi: Recover both CAPP units on Naples after malfunction alert</li>
+<li>chiptod: Sync timebase in both CAPP units on Naples</li>
+<li>phb3: Set CAPI mode for both CAPP units on Naples</li>
+<li>phb3: Load CAPP ucode to both CAPP units on Naples</li>
 <li><dl class="first docutils">
 <dt>phb3: Add support for CAPP DMA mode</dt>
-<dd><p class="first last">The XSL used in the Mellanox CX4 card uses a DMA mode of CAPI, which
+<dd>The XSL used in the Mellanox CX4 card uses a DMA mode of CAPI, which
 requires a few registers configured specially. This adds a new mode to
-the OPAL_PCI_SET_PHB_CAPI_MODE API to enable CAPI in DMA mode.</p>
-</dd>
+the OPAL_PCI_SET_PHB_CAPI_MODE API to enable CAPI in DMA mode.</dd>
 </dl>
 </li>
 </ul>
@@ -136,14 +129,12 @@ the OPAL_PCI_SET_PHB_CAPI_MODE API to enable CAPI in DMA mode.</p>
 </div>
 <div class="section" id="bmc-based-platforms">
 <h2>BMC based platforms<a class="headerlink" href="#bmc-based-platforms" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">bt: use the maximum retry count returned by the BMC</p>
-</li>
+<ul class="simple">
+<li>bt: use the maximum retry count returned by the BMC</li>
 <li><dl class="first docutils">
 <dt>SEL: Fix eSEL ID while logging eSEL event</dt>
-<dd><p class="first last">Commit 127a7dac added eSEL ID to SEL event in reverse order (0700 instead
-of 0007). This code fixes this issue by adding ID in proper order.</p>
-</dd>
+<dd>Commit 127a7dac added eSEL ID to SEL event in reverse order (0700 instead
+of 0007). This code fixes this issue by adding ID in proper order.</dd>
 </dl>
 </li>
 </ul>
@@ -204,72 +195,52 @@ read.</p>
 </div>
 <div class="section" id="tools">
 <h2>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h2>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>external: Add a getsram command</dt>
-<dd><p class="first last">The getsram command reads the OCC SRAM. This is useful for debug.</p>
-</dd>
+<dd>The getsram command reads the OCC SRAM. This is useful for debug.</dd>
 </dl>
 </li>
-<li><p class="first">bug fixes in flash utilities (pflash/gard)</p>
-</li>
-<li><p class="first">pflash: Allow building under yocto.</p>
-</li>
-<li><p class="first">external/opal-prd: Ensure that struct host_interfaces matches the thunk</p>
-</li>
-<li><p class="first">external/pflash: Handle incorrect cmd-line options better</p>
-</li>
-<li><p class="first">libflash: fix bug on reading truncated flash file</p>
-</li>
-<li><p class="first">pflash: add support for manipulating file rather than flash</p>
-</li>
-<li><p class="first">gard: fix compile error on ARM</p>
-</li>
-<li><p class="first">libflash: Add sanity checks to ffs init code.</p>
-</li>
-<li><p class="first">external: Add dynamically linked pflash</p>
-</li>
+<li>bug fixes in flash utilities (pflash/gard)</li>
+<li>pflash: Allow building under yocto.</li>
+<li>external/opal-prd: Ensure that struct host_interfaces matches the thunk</li>
+<li>external/pflash: Handle incorrect cmd-line options better</li>
+<li>libflash: fix bug on reading truncated flash file</li>
+<li>pflash: add support for manipulating file rather than flash</li>
+<li>gard: fix compile error on ARM</li>
+<li>libflash: Add sanity checks to ffs init code.</li>
+<li>external: Add dynamically linked pflash</li>
 </ul>
 </div>
 <div class="section" id="mambo">
 <h2>Mambo<a class="headerlink" href="#mambo" title="Permalink to this headline">¶</a></h2>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>Test device tree for kernel location</dt>
-<dd><p class="first last">This can reduce the boot time since the kernel no longer needs to
-relocate itself when loaded directly at 0.</p>
-</dd>
+<dd>This can reduce the boot time since the kernel no longer needs to
+relocate itself when loaded directly at 0.</dd>
 </dl>
 </li>
 </ul>
 </div>
 <div class="section" id="generic">
 <h2>Generic<a class="headerlink" href="#generic" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">hw/lpc: Log LPC SYNC errors as OPAL_PLATFORM_ERR_EVT errors</p>
-</li>
-<li><p class="first">Explicitly disable the attn instruction on all CPUs on boot.</p>
-</li>
-<li><p class="first">hw/xscom: Reset XSCOM engine after finite number of retries when busy</p>
-</li>
-<li><p class="first">hw/xscom: Reset XSCOM engine after querying sleeping core FIR</p>
-</li>
-<li><p class="first">core/timer: Add support for platform specific heartbeat</p>
-</li>
-<li><p class="first">Fix GCOV_COUNTERS ifdef logic for GCC 6.0</p>
-</li>
-<li><p class="first">core: Fix backtrace for gcc 6
-fixes a compiler warning on GCC 6 and above</p>
-</li>
+<ul class="simple">
+<li>hw/lpc: Log LPC SYNC errors as OPAL_PLATFORM_ERR_EVT errors</li>
+<li>Explicitly disable the attn instruction on all CPUs on boot.</li>
+<li>hw/xscom: Reset XSCOM engine after finite number of retries when busy</li>
+<li>hw/xscom: Reset XSCOM engine after querying sleeping core FIR</li>
+<li>core/timer: Add support for platform specific heartbeat</li>
+<li>Fix GCOV_COUNTERS ifdef logic for GCC 6.0</li>
+<li>core: Fix backtrace for gcc 6
+fixes a compiler warning on GCC 6 and above</li>
 <li><dl class="first docutils">
 <dt>cpu: Don&#8217;t call time_wait with lock held</dt>
-<dd><p class="first last">Also make the locking around re-init safer, properly block the
-OS from restarting a thread that was caught for re-init.</p>
-</dd>
+<dd>Also make the locking around re-init safer, properly block the
+OS from restarting a thread that was caught for re-init.</dd>
 </dl>
 </li>
-<li><p class="first">flash: Increase the maximum number of flash devices</p>
-</li>
+<li>flash: Increase the maximum number of flash devices</li>
 </ul>
 </div>
 <div class="section" id="contributors">
@@ -787,7 +758,7 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/release-notes/skiboot-5.3.0-rc1.txt"
+      <li><a href="../_sources/release-notes/skiboot-5.3.0-rc1.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -817,13 +788,14 @@ A total of 20887 lines added, 4540 removed (delta 16347)</p>
         <li class="right" >
           <a href="skiboot-5.3.0.html" title="skiboot-5.3.0"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
     </div>
   </body>
 </html>

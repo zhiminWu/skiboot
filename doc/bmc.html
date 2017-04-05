@@ -6,7 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>OPAL &lt;–&gt; BMC interactions &#8212; skiboot 5.4.0-rc3 documentation</title>
+    <title>OPAL &lt;–&gt; BMC interactions &#8212; skiboot 5.5.0-rc3
+ documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,10 +15,12 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '5.4.0-rc3',
+        VERSION:     '5.5.0-rc3
+',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -25,7 +28,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="skiboot 5.4.0-rc3 documentation" href="index.html" />
     <link rel="next" title="GCOV for skiboot" href="gcov.html" />
     <link rel="prev" title="How to log errors on OPAL" href="error-logging.html" /> 
   </head>
@@ -42,7 +44,8 @@
         <li class="right" >
           <a href="error-logging.html" title="How to log errors on OPAL"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -71,10 +74,10 @@ or aborted boot, for switching to a known-good firmware image.</p>
 <p>FW Boot Progress: assertion type. During boot, skiboot will update this sensor
 to one of the IPMI-defined progress codes. The codes use by skiboot are:</p>
 <blockquote>
-<div><ul>
+<div><ul class="simple">
 <li><dl class="first docutils">
 <dt>PCI Resource configuration (0x01)</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>asserted as the PCI devices have been probed and resources allocated</li>
 </ul>
 </dd>
@@ -82,7 +85,7 @@ to one of the IPMI-defined progress codes. The codes use by skiboot are:</p>
 </li>
 <li><dl class="first docutils">
 <dt>Motherboard init (0x14)</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>asserted as the platform-specific components have been initialised</li>
 </ul>
 </dd>
@@ -90,7 +93,7 @@ to one of the IPMI-defined progress codes. The codes use by skiboot are:</p>
 </li>
 <li><dl class="first docutils">
 <dt>OS boot (0x13)</dt>
-<dd><ul class="first last simple">
+<dd><ul class="first last">
 <li>asserted after skiboot has loaded the PAYLOAD image, and is about to
 boot it.</li>
 </ul>
@@ -148,7 +151,7 @@ IPMI SEL Time as a real-time-clock device.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/bmc.txt"
+      <li><a href="_sources/bmc.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -178,12 +181,13 @@ IPMI SEL Time as a real-time-clock device.</p>
         <li class="right" >
           <a href="error-logging.html" title="How to log errors on OPAL"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
     </div>
   </body>
 </html>

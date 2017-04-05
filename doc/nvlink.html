@@ -6,7 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>OPAL/Skiboot Nvlink Interface Documentation &#8212; skiboot 5.4.0-rc3 documentation</title>
+    <title>OPAL/Skiboot Nvlink Interface Documentation &#8212; skiboot 5.5.0-rc3
+ documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,10 +15,12 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '5.4.0-rc3',
+        VERSION:     '5.5.0-rc3
+',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -25,7 +28,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="skiboot 5.4.0-rc3 documentation" href="index.html" />
     <link rel="next" title="Skiboot stable tree rules and releases" href="stable-skiboot-rules.html" />
     <link rel="prev" title="Memory in skiboot" href="memory.html" /> 
   </head>
@@ -42,7 +44,8 @@
         <li class="right" >
           <a href="memory.html" title="Memory in skiboot"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -83,9 +86,9 @@ related to the setup of DMA windows.</p>
 <h3>Configuration Space Parameters<a class="headerlink" href="#configuration-space-parameters" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
-<col width="19%" />
-<col width="24%" />
-<col width="56%" />
+<col width="17%" />
+<col width="26%" />
+<col width="57%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">&nbsp;</th>
@@ -107,12 +110,16 @@ related to the setup of DMA windows.</p>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>Class</td>
-<td>0x068000</td>
-<td>(Bridge Device Other, ProgIf = 0x0)</td>
+<td>0x068000 / 0x068001</td>
+<td>(Bridge Device Other, ProgIf = 0x0 / 0x1)</td>
 </tr>
 <tr class="row-even"><td>BAR0/1</td>
 <td>TL/DL Registers</td>
 <td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>BAR2/3</td>
+<td>GEN-ID Registers</td>
+<td>(Only for rev-id = 0x1)</td>
 </tr>
 </tbody>
 </table>
@@ -128,6 +135,15 @@ to 64-bit BAR#0 of the emulated PCI device configuration space.</p>
 <span class="n">BAR</span><span class="c1">#0       +-----------+</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="generation-registers-gen-id">
+<h3>Generation Registers (GEN-ID)<a class="headerlink" href="#generation-registers-gen-id" title="Permalink to this headline">¶</a></h3>
+<p>On POWER9 each link has 64K of generation ID registers for the relaxed
+ordering mode syncronisation. Refer to the programming guide for
+details of the register layout in this BAR.</p>
+<p>Relaxed ordering mode will be disabled by default as it requires
+device driver support. Device drivers will need to request relaxed
+ordering mode through some yet to be designed mechanism.</p>
 </div>
 <div class="section" id="vendor-specific-capabilities">
 <h3>Vendor Specific Capabilities<a class="headerlink" href="#vendor-specific-capabilities" title="Permalink to this headline">¶</a></h3>
@@ -238,6 +254,7 @@ reporting.</p>
 <li><a class="reference internal" href="#emulated-pci-devices">Emulated PCI Devices</a><ul>
 <li><a class="reference internal" href="#configuration-space-parameters">Configuration Space Parameters</a></li>
 <li><a class="reference internal" href="#tl-dl-registers">TL/DL Registers</a></li>
+<li><a class="reference internal" href="#generation-registers-gen-id">Generation Registers (GEN-ID)</a></li>
 <li><a class="reference internal" href="#vendor-specific-capabilities">Vendor Specific Capabilities</a></li>
 <li><a class="reference internal" href="#interrupts">Interrupts</a></li>
 </ul>
@@ -256,7 +273,7 @@ reporting.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/nvlink.txt"
+      <li><a href="_sources/nvlink.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -286,12 +303,13 @@ reporting.</p>
         <li class="right" >
           <a href="memory.html" title="Memory in skiboot"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
     </div>
   </body>
 </html>

@@ -6,7 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>skiboot-5.4.0-rc1 &#8212; skiboot 5.4.0-rc3 documentation</title>
+    <title>skiboot-5.4.0-rc1 &#8212; skiboot 5.5.0-rc3
+ documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,10 +15,12 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.4.0-rc3',
+        VERSION:     '5.5.0-rc3
+',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -25,10 +28,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="skiboot 5.4.0-rc3 documentation" href="../index.html" />
-    <link rel="up" title="Release Notes" href="index.html" />
     <link rel="next" title="skiboot-5.4.0-rc2" href="skiboot-5.4.0-rc2.html" />
-    <link rel="prev" title="skiboot-5.3.7" href="skiboot-5.3.7.html" /> 
+    <link rel="prev" title="skiboot-5.4.0" href="skiboot-5.4.0.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -41,9 +42,10 @@
           <a href="skiboot-5.4.0-rc2.html" title="skiboot-5.4.0-rc2"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="skiboot-5.3.7.html" title="skiboot-5.3.7"
+          <a href="skiboot-5.4.0.html" title="skiboot-5.4.0"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
     </div>  
@@ -240,55 +242,45 @@ caching of the source lookups.</p>
 </div>
 <div class="section" id="nvram">
 <h2>NVRAM<a class="headerlink" href="#nvram" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">Support <code class="docutils literal"><span class="pre">ibm,skiboot</span></code> partition for skiboot specific configuration options</p>
-</li>
+<ul class="simple">
+<li>Support <code class="docutils literal"><span class="pre">ibm,skiboot</span></code> partition for skiboot specific configuration options</li>
 <li><dl class="first docutils">
 <dt>flash: Size NVRAM based on ECC for OpenPOWER platforms</dt>
-<dd><p class="first last">If NVRAM has ECC (as per the ffs header) then the actual size of the
+<dd>If NVRAM has ECC (as per the ffs header) then the actual size of the
 partition is less than reported by the ffs header in the PNOR then the
-actual size of the partition is less than reported by the ffs header.</p>
-</dd>
+actual size of the partition is less than reported by the ffs header.</dd>
 </dl>
 </li>
 </ul>
 </div>
 <div class="section" id="nvlink-npu">
 <h2>NVLink/NPU<a class="headerlink" href="#nvlink-npu" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">Fix reserved PE#</p>
-</li>
-<li><p class="first">NPU bdfn allocation bugfix</p>
-</li>
+<ul class="simple">
+<li>Fix reserved PE#</li>
+<li>NPU bdfn allocation bugfix</li>
 <li><dl class="first docutils">
 <dt>Fix bad PE number check</dt>
-<dd><p class="first last">NPUs have 4 PEs which are zero indexed, so {0, 1, 2, 3}.  A bad PE number
+<dd>NPUs have 4 PEs which are zero indexed, so {0, 1, 2, 3}.  A bad PE number
 check in npu_err_inject checks if the PE number is greater than 4 as a
-fail case, so it would wrongly perform operations on a non-existant PE 4.</p>
-</dd>
+fail case, so it would wrongly perform operations on a non-existant PE 4.</dd>
 </dl>
 </li>
-<li><p class="first">Use PCI virtual device</p>
-</li>
-<li><p class="first">assert the NPU irq min is aligned.</p>
-</li>
-<li><p class="first">program NPU BUID reg properly</p>
-</li>
+<li>Use PCI virtual device</li>
+<li>assert the NPU irq min is aligned.</li>
+<li>program NPU BUID reg properly</li>
 <li><dl class="first docutils">
 <dt>npu: reword &#8220;error&#8221; to indicate it&#8217;s actually a warning</dt>
-<dd><p class="first last">Incorrect FWTS annotation.
+<dd>Incorrect FWTS annotation.
 Without this patch, you get spurious FirmWare Test Suite (FWTS) warnings
 about NVLink not working on machines that aren&#8217;t fully populated with
-GPUs.</p>
-</dd>
+GPUs.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>external: NPU hardware procedure script</dt>
-<dd><p class="first last">Performing NPU hardware procedures requires some config space magic.
+<dd>Performing NPU hardware procedures requires some config space magic.
 Put all that magic into a script, so you can just specify the target
-device and the procedure number.</p>
-</dd>
+device and the procedure number.</dd>
 </dl>
 </li>
 </ul>
@@ -345,27 +337,25 @@ and the downstream ports of the PCIe switch supports PCI hotplug.</li>
 </div>
 <div class="section" id="capi">
 <h2>CAPI<a class="headerlink" href="#capi" title="Permalink to this headline">¶</a></h2>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>hw/phb3: Update capi initialization sequence</dt>
-<dd><p class="first last">The capi initialization sequence was revised in a circumvention
+<dd>The capi initialization sequence was revised in a circumvention
 document when a &#8216;link down&#8217; error was converted from fatal to Endpoint
 Recoverable. Other, non-capi, register setup was corrected even before
 the initial open-source release of skiboot, but a few capi-related
-registers were not updated then, so this patch fixes it.</p>
-</dd>
+registers were not updated then, so this patch fixes it.</dd>
 </dl>
 </li>
 </ul>
 </div>
 <div class="section" id="ipmi">
 <h2>IPMI<a class="headerlink" href="#ipmi" title="Permalink to this headline">¶</a></h2>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>core/ipmi: Set interrupt-parent property</dt>
-<dd><p class="first last">This allows ipmi-opal to properly use the OPAL irqchip rather than
-falling back to the event interface in Linux.</p>
-</dd>
+<dd>This allows ipmi-opal to properly use the OPAL irqchip rather than
+falling back to the event interface in Linux.</dd>
 </dl>
 </li>
 </ul>
@@ -425,22 +415,18 @@ parse that same value correctly in <code class="docutils literal"><span class="p
 </div>
 <div class="section" id="prd">
 <h2>PRD<a class="headerlink" href="#prd" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">opal-prd: Fix error code from <code class="docutils literal"><span class="pre">scom_read</span></code> and <code class="docutils literal"><span class="pre">scom_write</span></code></p>
-</li>
-<li><p class="first">opal-prd: Add get_interface_capabilities to host interfaces</p>
-</li>
-<li><p class="first">opal-prd: fix for 64-bit pnor sizes</p>
-</li>
+<ul class="simple">
+<li>opal-prd: Fix error code from <code class="docutils literal"><span class="pre">scom_read</span></code> and <code class="docutils literal"><span class="pre">scom_write</span></code></li>
+<li>opal-prd: Add get_interface_capabilities to host interfaces</li>
+<li>opal-prd: fix for 64-bit pnor sizes</li>
 <li><dl class="first docutils">
 <dt>occ/prd/opal-prd: Queue OCC_RESET event message to host in OpenPOWER</dt>
-<dd><p class="first last">During an OCC reset cycle the system is forced to Psafe pstate.
+<dd>During an OCC reset cycle the system is forced to Psafe pstate.
 When OCC becomes active, the system has to be restored to its
 last pstate as requested by host. So host needs to be notified
 of OCC_RESET event or else system will continue to remian in
 Psafe state until host requests a new pstate after the OCC
-reset cycle.</p>
-</dd>
+reset cycle.</dd>
 </dl>
 </li>
 </ul>
@@ -497,74 +483,57 @@ only one error log instead of getting all error log in
 </div>
 <div class="section" id="power9">
 <h2>POWER9<a class="headerlink" href="#power9" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">mambo: Make POWER9 look like DD2</p>
-</li>
+<ul class="simple">
+<li>mambo: Make POWER9 look like DD2</li>
 <li><dl class="first docutils">
 <dt>flash: Move flash node under <code class="docutils literal"><span class="pre">ibm,opal/flash/</span></code></dt>
-<dd><p class="first last">This changes the boot ABI, so it&#8217;s only active for P9 and later systems,
+<dd>This changes the boot ABI, so it&#8217;s only active for P9 and later systems,
 even though it&#8217;s unrelated to hardware changes. There is an associated
-Linux change to properly search for this node as well.</p>
-</dd>
+Linux change to properly search for this node as well.</dd>
 </dl>
 </li>
-<li><p class="first">core/cpu.c: Add OPAL call to setup Nest MMU</p>
-</li>
-<li><p class="first">psi: On p9, create an interrupt-map for routing PSI interrupts</p>
-</li>
-<li><p class="first">lpc: Add P9 LPC interrupts support</p>
-</li>
-<li><p class="first">chiptod: Basic P9 support</p>
-</li>
-<li><p class="first">psi: Add P9 support</p>
-</li>
+<li>core/cpu.c: Add OPAL call to setup Nest MMU</li>
+<li>psi: On p9, create an interrupt-map for routing PSI interrupts</li>
+<li>lpc: Add P9 LPC interrupts support</li>
+<li>chiptod: Basic P9 support</li>
+<li>psi: Add P9 support</li>
 </ul>
 </div>
 <div class="section" id="testing-and-debugging">
 <h2>Testing and Debugging<a class="headerlink" href="#testing-and-debugging" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">test/qemu: bump qemu version used in CI, adds IPMI support</p>
-</li>
-<li><p class="first">platform/qemu: add BT and IPMI support
-Enables testing BT and IPMI functionality in the Qemu simulator</p>
-</li>
-<li><p class="first">init: In debug builds, enable debug output to console</p>
-</li>
+<ul class="simple">
+<li>test/qemu: bump qemu version used in CI, adds IPMI support</li>
+<li>platform/qemu: add BT and IPMI support
+Enables testing BT and IPMI functionality in the Qemu simulator</li>
+<li>init: In debug builds, enable debug output to console</li>
 <li><dl class="first docutils">
 <dt>mem_region: Be a bit smarter about poisoning</dt>
-<dd><p class="first last">Don&#8217;t poison chunks that are already free and poison regions on
-first allocation. This speeds things up dramatically.</p>
-</dd>
+<dd>Don&#8217;t poison chunks that are already free and poison regions on
+first allocation. This speeds things up dramatically.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>libc: Use 8-bytes stores for non-0 memset too</dt>
-<dd><p class="first last">Memory poisoning hammers this, so let&#8217;s be a bit smart about it and
-avoid falling back to byte stores when the data is not 0</p>
-</dd>
+<dd>Memory poisoning hammers this, so let&#8217;s be a bit smart about it and
+avoid falling back to byte stores when the data is not 0</dd>
 </dl>
 </li>
-<li><p class="first">fwts: add annotation for manufacturing mode</p>
-</li>
-<li><p class="first">check: Fix bugs in mem region tests</p>
-</li>
+<li>fwts: add annotation for manufacturing mode</li>
+<li>check: Fix bugs in mem region tests</li>
 <li><dl class="first docutils">
 <dt>Don&#8217;t set -fstack-protector-all unconditionally</dt>
-<dd><p class="first last">We set it already in DEBUG builds and we use -fstack-protector-strong
+<dd>We set it already in DEBUG builds and we use -fstack-protector-strong
 in release builds which provides most of the benefits and is more
-efficient.</p>
-</dd>
+efficient.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Build host programs (and checks) with debug enabled</dt>
-<dd><p class="first last">This enables memory poisoning in allocations and list checking
-among other things.</p>
-</dd>
+<dd>This enables memory poisoning in allocations and list checking
+among other things.</dd>
 </dl>
 </li>
-<li><p class="first">Add global DEBUG make flag</p>
-</li>
+<li>Add global DEBUG make flag</li>
 </ul>
 </div>
 <div class="section" id="contributors">
@@ -1110,15 +1079,15 @@ A total of 17052 lines added, 4745 removed (delta 12307)</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="skiboot-5.3.7.html"
-                        title="previous chapter">skiboot-5.3.7</a></p>
+  <p class="topless"><a href="skiboot-5.4.0.html"
+                        title="previous chapter">skiboot-5.4.0</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="skiboot-5.4.0-rc2.html"
                         title="next chapter">skiboot-5.4.0-rc2</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/release-notes/skiboot-5.4.0-rc1.txt"
+      <li><a href="../_sources/release-notes/skiboot-5.4.0-rc1.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -1146,15 +1115,16 @@ A total of 17052 lines added, 4745 removed (delta 12307)</p>
           <a href="skiboot-5.4.0-rc2.html" title="skiboot-5.4.0-rc2"
              >next</a> |</li>
         <li class="right" >
-          <a href="skiboot-5.3.7.html" title="skiboot-5.3.7"
+          <a href="skiboot-5.4.0.html" title="skiboot-5.4.0"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
     </div>
   </body>
 </html>

@@ -6,7 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>PCI Slots &#8212; skiboot 5.4.0-rc3 documentation</title>
+    <title>PCI Slots &#8212; skiboot 5.5.0-rc3
+ documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,10 +15,12 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '5.4.0-rc3',
+        VERSION:     '5.5.0-rc3
+',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -25,7 +28,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="skiboot 5.4.0-rc3 documentation" href="index.html" />
     <link rel="next" title="XSCOM Bindings" href="xscom-node-bindings.html" />
     <link rel="prev" title="PCI" href="pci.html" /> 
   </head>
@@ -42,7 +44,8 @@
         <li class="right" >
           <a href="pci.html" title="PCI"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -145,8 +148,8 @@ individual platforms (e.g. Firenze and Apollo) have VPD for the PCI slot, they
 should extract the PCI slot properties from VPD and export them accordingly.</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="24%" />
-<col width="76%" />
+<col width="28%" />
+<col width="72%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Property</th>
@@ -159,6 +162,12 @@ should extract the PCI slot properties from VPD and export them accordingly.</p>
 </tr>
 <tr class="row-odd"><td>ibm,slot-pluggable</td>
 <td>Boolean indicating whether the slot is pluggable</td>
+</tr>
+<tr class="row-even"><td>ibm,slot-surprise-pluggable</td>
+<td>Boolean indicating whether the slot supports surprise hotplug</td>
+</tr>
+<tr class="row-odd"><td>ibm,slot-broken-pdc</td>
+<td>Boolean indicating whether PDC (Presence Detection Change) is broken</td>
 </tr>
 <tr class="row-even"><td>ibm,slot-power-ctl</td>
 <td>Boolean indicating whether the slot has power control</td>
@@ -265,7 +274,7 @@ PCI device tree node except those generic properties (as above):</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/pci-slot.txt"
+      <li><a href="_sources/pci-slot.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -295,12 +304,13 @@ PCI device tree node except those generic properties (as above):</p>
         <li class="right" >
           <a href="pci.html" title="PCI"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
     </div>
   </body>
 </html>

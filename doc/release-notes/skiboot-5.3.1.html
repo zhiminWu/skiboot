@@ -6,7 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>skiboot-5.3.1 &#8212; skiboot 5.4.0-rc3 documentation</title>
+    <title>skiboot-5.3.1 &#8212; skiboot 5.5.0-rc3
+ documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,10 +15,12 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '5.4.0-rc3',
+        VERSION:     '5.5.0-rc3
+',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -25,8 +28,6 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="top" title="skiboot 5.4.0-rc3 documentation" href="../index.html" />
-    <link rel="up" title="Release Notes" href="index.html" />
     <link rel="next" title="skiboot-5.3.2" href="skiboot-5.3.2.html" />
     <link rel="prev" title="skiboot-5.3.0-rc2" href="skiboot-5.3.0-rc2.html" /> 
   </head>
@@ -43,7 +44,8 @@
         <li class="right" >
           <a href="skiboot-5.3.0-rc2.html" title="skiboot-5.3.0-rc2"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Release Notes</a> &#187;</li> 
       </ul>
     </div>  
@@ -63,33 +65,30 @@ a few minor bug fixes.</p>
 <p>This release follows the Skiboot stable rules, see <a class="reference internal" href="../stable-skiboot-rules.html#stable-rules"><span class="std std-ref">Skiboot stable tree rules and releases</span></a>.</p>
 <p>Over skiboot-5.3.0, the following fixes are included:</p>
 <p>FSP systems:</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>FSP/ELOG: elog_enable flag should be false by default</dt>
-<dd><p class="first last">This issue is one of the corner case, which is related to recent change
+<dd>This issue is one of the corner case, which is related to recent change
 went upstream and only observed in the petitboot prompt, where we see
 only one error log instead of getting all error log in
-/sys/firmware/opal/elog.</p>
-</dd>
+/sys/firmware/opal/elog.</dd>
 </dl>
 </li>
 </ul>
 <p>NVLink systems (i.e. Garrison):</p>
-<ul>
+<ul class="simple">
 <li><dl class="first docutils">
 <dt>npu: reword &#8220;error&#8221; to indicate it&#8217;s actually a warning</dt>
-<dd><p class="first last">Without this patch, you get spurious FirmWare Test Suite (FWTS) warnings
+<dd>Without this patch, you get spurious FirmWare Test Suite (FWTS) warnings
 about NVLink not working on machines that aren&#8217;t fully populated with
-GPUs.</p>
-</dd>
+GPUs.</dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>hmi: Clean up NPU FIR debug messages</dt>
-<dd><p class="first last">With the skiboot log set to debug, the FIR (and related registers) were
+<dd>With the skiboot log set to debug, the FIR (and related registers) were
 logged all in the same message.  It was too much for one line, didn&#8217;t
-clarify if the numbers were in hex, and didn&#8217;t show leading zeroes.</p>
-</dd>
+clarify if the numbers were in hex, and didn&#8217;t show leading zeroes.</dd>
 </dl>
 </li>
 </ul>
@@ -116,7 +115,7 @@ log messages.</li>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/release-notes/skiboot-5.3.1.txt"
+      <li><a href="../_sources/release-notes/skiboot-5.3.1.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -146,13 +145,14 @@ log messages.</li>
         <li class="right" >
           <a href="skiboot-5.3.0-rc2.html" title="skiboot-5.3.0-rc2"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Release Notes</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
     </div>
   </body>
 </html>

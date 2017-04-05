@@ -6,7 +6,8 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Skiboot overview &#8212; skiboot 5.4.0-rc3 documentation</title>
+    <title>Skiboot overview &#8212; skiboot 5.5.0-rc3
+ documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,10 +15,12 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '5.4.0-rc3',
+        VERSION:     '5.5.0-rc3
+',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -25,7 +28,6 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="top" title="skiboot 5.4.0-rc3 documentation" href="index.html" />
     <link rel="next" title="OPAL Specification" href="opal-spec.html" />
     <link rel="prev" title="Overview" href="index.html" /> 
   </head>
@@ -42,7 +44,8 @@
         <li class="right" >
           <a href="index.html" title="Overview"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -173,7 +176,7 @@ during boot.</p>
 <h2>Memory<a class="headerlink" href="#memory" title="Permalink to this headline">¶</a></h2>
 <p>We initially occupy a chunk of memory, &#8220;heap&#8221;. We pass to the OS (Linux)
 a reservation of what we occupy (including stacks).</p>
-<p>In the source file include/config.h we include a memory map. This is
+<p>In the source file include/mem-map.h we include a memory map. This is
 manually generated, not automatically generated.</p>
 <p>We use CCAN for a bunch of helper code, turning on things like DEBUG_LOCKS
 and DEBUG_MALLOC as these are not a performance issue for us, and we like
@@ -208,8 +211,8 @@ which is largely historical.</p>
 <div class="section" id="skiboot-log">
 <h2>Skiboot log<a class="headerlink" href="#skiboot-log" title="Permalink to this headline">¶</a></h2>
 <p>There is a circular log buffer that skiboot maintains. This can be
-accessed either from the FSP or through /dev/mem or through a debugfs
-patch that&#8217;s currently floating around.</p>
+accessed either from the FSP or through /dev/mem or through the sysfs
+file /sys/firmware/opal/msglog.</p>
 </div>
 </div>
 
@@ -242,7 +245,7 @@ patch that&#8217;s currently floating around.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/overview.txt"
+      <li><a href="_sources/overview.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -272,12 +275,13 @@ patch that&#8217;s currently floating around.</p>
         <li class="right" >
           <a href="index.html" title="Overview"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.4.0-rc3 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">skiboot 5.5.0-rc3
+ documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Stewart Smith, IBM, others.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.8.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2.
     </div>
   </body>
 </html>
